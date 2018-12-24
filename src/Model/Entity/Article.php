@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Bookmark[] $bookmarks
  */
-class Tag extends Entity
+class Article extends Entity
 {
 
     /**
@@ -25,10 +25,9 @@ class Tag extends Entity
      *
      * @var array
      */
-    protected $_accessible = [
-        'title' => true,
-        'created' => true,
-        'modified' => true,
-        'bookmarks' => true
-    ];
+	protected $_accessible = [
+		'*' => true,
+		'id' => false,
+		'slug' => false,
+	];
 }
