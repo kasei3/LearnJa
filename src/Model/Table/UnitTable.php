@@ -34,6 +34,9 @@ class UnitTable extends Table
         $this->setTable('unit');
         $this->setDisplayField('name');
         $this->setPrimaryKey('unit_id');
+        $this->belongsTo('Course',[
+        	'className' =>'Course'
+		]);
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Controller;
+
 use App\Controller\AppController;
 
 /**
@@ -11,8 +13,7 @@ use App\Controller\AppController;
  */
 class LearnJaController extends AppController {
 
-	public function initialize()
-	{
+	public function initialize() {
 		parent::initialize();
 		$this->loadComponent('Paginator');
 		$this->loadComponent('Flash'); // Include the FlashComponent
@@ -31,40 +32,74 @@ class LearnJaController extends AppController {
 	/**
 	 * 单词列表
 	 */
-	public function wordList(){
+	public function wordList() {
 
 	}
 
 	/*
 	 * 输入法学习
 	 */
-	public function typing(){
+	public function typing() {
 
 	}
 
 	/**
 	 * 单词练习
 	 */
-	public function words(){
+	public function words() {
+		$this->loadModel("Course");
+		$courses = $this->Course->find("all", [
+			'conditions' => [
+				'course_id' => 3
+			]
+		])->contain(['Unit']);
+		foreach ($courses as $course) {
+			debug($course);
+		}
+	}
+
+	/**
+	 * 每日一句
+	 */
+	public function oneSentencePerDay() {
+		$this->loadModel("Sentence");
+		$sentenceList = $this->Sentence->find("all");
+
+		$this->set("sentenceList", $sentenceList);
+	}
+
+	public function addSentence($id) {
 
 	}
 
 	/**
 	 * 练习
 	 */
-	public function testS(){
-	$this->loadModel('Word');
+	public function testS() {
+		$this->loadModel('Word');
 
-//		$words = $this->Paginator->paginate($this->Word->find());
+		//		$words = $this->Paginator->paginate($this->Word->find());
 		$words = $this->Word->find('all');
 
 		foreach ($words as $word) {
 			debug($word);
 		}
+	}
+
+	public function testM() {
 
 	}
 
-	public function testM(){
+	// 我的句库
+	public function SentenceCollect() {
+		$this->disableAutoRender();
+
+		$this->loadModel('Sentence');
+
+		$this->Sentence->get(1);
+		
+
+
 
 	}
 

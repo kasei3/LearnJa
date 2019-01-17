@@ -26,7 +26,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">(。・＿・。)ﾉ爸爸学日语网</a>
+    <a class="navbar-brand" href="/">(。・＿・。)ﾉ学语网</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,6 +38,9 @@
             </li>
             <li class="nav-item">
 				<?php echo $this->Html->link("日语单词（未完）","/LearnJa/words",['class'=>'nav-link']);?>
+            </li>
+            <li class="nav-item">
+				<?php echo $this->Html->link("每日一句","/LearnJa/oneSentencePerDay",['class'=>'nav-link']);?>
             </li>
 <!--            <li class="nav-item">-->
 <!--				--><?php //echo $this->Html->link("日语句子（未完）","/LearnJa/words",['class'=>'nav-link']);?>

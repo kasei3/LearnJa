@@ -34,6 +34,9 @@ class CourseTable extends Table
         $this->setTable('course');
         $this->setDisplayField('course_id');
         $this->setPrimaryKey('course_id');
+
+		$this->hasMany('Unit')
+			->setConditions(['is_enabled'=>true]);
     }
 
     /**
